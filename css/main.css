@@ -300,17 +300,31 @@ html, body {
   position: relative;
 }
 
-section {
-  background: #dedede url('../img/background.png') center top;
-  background-size: auto;
-}
-
-.front {
+#interface {
   display: block;
   width: 100%;
   height: 100%;
   overflow: hidden;
   position: relative;
+}
+
+section {
+  background: #dedede url('../img/background.png') center top;
+  background-size: auto;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+#side {
+  display: none;
+
+}
+
+#front.hide, #back.hide {
+  display: none;
 }
 
 .title {
@@ -322,6 +336,23 @@ section {
   margin-left: -89px;
   background: url('../img/title.png') center center;
   background-size: auto;
+}
+
+.disclaimer {
+  display: block;
+  content: '';
+  width: 270px;
+  height: 270px;
+  margin: -135px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: url('../img/disclaimer.png') center center;
+  background-size: auto;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  transition: all 5s;
 }
 
 #heatr {
@@ -350,6 +381,40 @@ section {
   transition: all .1s;
 }
 
-.back, .side {
-  display: none;
+#about {
+  display: block;
+  width: 46px;
+  height: 46px;
+  margin: 0 -23px;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  background: url('../img/about.png') center center;
+}
+
+#x {
+  display: block;
+  width: 46px;
+  height: 46px;
+  margin: 0 -23px;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  background: url('../img/x.png') center center;
+}
+#tweet {
+  display: block;
+  width: 46px;
+  height: 46px;
+  margin: 0;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  background: url('../img/tweet.png') center center;
+}
+
+@media only screen and (min-width: 460px) {
+  #front, #back { display: none; }
+  #side { display: block; }
+
 }
