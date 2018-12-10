@@ -1,12 +1,17 @@
+var about = false;
 
 document.getElementById('about').addEventListener('click', function () {
   console.log('?');
-  document.getElementById('front').classList.add('hide');
-  document.getElementById('back').classList.remove('hide');
+  if (!about) {
+    document.getElementById('interface').classList.add('about');
+  } else {
+    document.getElementById('interface').classList.remove('about');
+  }
+  about = !about;
 });
 
 document.getElementById('x').addEventListener('click', function () {
   console.log('x');
-  document.getElementById('back').classList.add('hide');
-  document.getElementById('front').classList.remove('hide');
+  document.getElementById('interface').classList.remove('about');
+
 });
