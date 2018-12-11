@@ -29,14 +29,22 @@ heatr.define = function() {
 		heatr.instance.user = user;
 	}
 }
-
-heatr.init = function() {
+heatr.start = function() {
 	firebase.initializeApp(this.config.app);
 	this.define();
 	this.setup();
+}
+
+heatr.init = function() {
+	this.start();
 
 	this.register.on();
 	this.register.listeners();
+
+	// Lets configure the unique names and make sure we register them into our system //
+	this.unique_name();
+
+	this.template.init();
 }
 
 heatr.setup = function() {
@@ -45,10 +53,6 @@ heatr.setup = function() {
 	// Disable deprecated features
 	this.db.settings(this.config.db);
 
-	this.template.init();
-
-	// Lets configure the unique names and make sure we register them into our system //
-	this.unique_name();
 }
 
 heatr.register = {
@@ -152,7 +156,3 @@ heatr.unique_name = function() {
 
 	}
 }
-
-
-
-heatr.init();
