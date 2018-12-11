@@ -300,8 +300,6 @@ html, body {
   width: 100%;
   overflow: hidden;
   position: relative;
-  background: #dedede url('../img/background.png') center top;
-  background-size: auto;
 }
 
 #interface {
@@ -310,14 +308,6 @@ html, body {
   height: 100%;
   overflow: hidden;
   position: relative;
-  transform: perspective(400px) rotateY(0);
-  transition: transform .5s;
-
-}
-
-#interface.about {
-  transform: perspective(400px) rotateY(180deg);
-  transition: transform .5s;
 }
 
 section {
@@ -328,14 +318,12 @@ section {
   height: 100%;
   overflow: hidden;
   position: relative;
-}
 
-#front {
-  top: -100%;
-}
+  .user {
+	  .info {
 
-#back {
-  transform: perspective(400px) translateZ(-0px) rotateY(180deg);
+	  }
+  }
 }
 
 #side {
@@ -343,7 +331,7 @@ section {
 
 }
 
-#large {
+#front.hide, #back.hide {
   display: none;
 }
 
@@ -362,7 +350,7 @@ section {
   display: block;
   content: '';
   width: 240px;
-  height: 318px;
+  height: 309px;
   margin: -124px -120px;
   position: absolute;
   top: 50%;
@@ -390,17 +378,6 @@ section {
   border: 0;
   outline: 0;
   transition: all 5s;
-}
-
-.info-large {
-  display: block;
-  width: 674px;
-  height: 233px;
-  margin: -116px -337px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  background: url('../img/large.png') center center;
 }
 
 #heatr {
@@ -461,24 +438,8 @@ section {
   background: url('../img/tweet.png') center center;
 }
 
-#github {
-  display: block;
-  width: 46px;
-  height: 46px;
-  margin: 0;
-  position: absolute;
-  bottom: 30px;
-  left: 30px;
-  background: url('../img/github.png') center center;
-}
-
 @media only screen and (min-width: 460px) {
-  #front, #back, #large { display: none; }
+  #front, #back { display: none; }
   #side { display: block; }
 
-}
-
-@media only screen and (min-width: 824px) {
-  #front, #back, #side { display: none; }
-  #large { display: block; }
 }

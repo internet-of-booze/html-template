@@ -14,7 +14,7 @@
 	  {
 		  "collectionId" : "queue",
 		  "fields" : [
-			  { "fieldPath" : "timestamp", "mode" : "ASCENDING" }
+			  { "fieldPath" : "timestamp" }
 		  ]
 	  }
   ]
