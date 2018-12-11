@@ -1,0 +1,18 @@
+{
+    "icons": [
+        {
+            "src": "/images/icon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "https://internet-of-booze-xmas.firebaseapp.com/",
+    "lang": "",
+    "display": "fullscreen",
+    "orientation": "portrait",
+    "name": "IoB - Heatr",
+    "short_name": "iob-heatr",
+    "description": "An app to light stuff on fire for xmas",
+    "scope": ".",
+    "background_color": "transparent"
+}

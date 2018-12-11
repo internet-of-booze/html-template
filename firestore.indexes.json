@@ -1,0 +1,21 @@
+{
+  // Example:
+  //
+  // "indexes": [
+  //   {
+  //     "collectionId": "widgets",
+  //     "fields": [
+  //       { "fieldPath": "foo", "mode": "ASCENDING" },
+  //       { "fieldPath": "bar", "mode": "DESCENDING" }
+  //     ]
+  //   }
+  // ]
+  "indexes": [
+	  {
+		  "collectionId" : "queue",
+		  "fields" : [
+			  { "fieldPath" : "timestamp", "mode" : "ASCENDING" }
+		  ]
+	  }
+  ]
+}
