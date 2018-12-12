@@ -5,6 +5,7 @@
 
   <link rel="stylesheet" href="../css/normalize.css">
   <link rel="stylesheet" href="../css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet">
   <style>
 	html, body {
 		overflow: auto;
@@ -15,18 +16,20 @@
 
 </head>
 
-<body>
-<div class="main">
-	<header>
-
-	</header>
-
-	<section class="admin panel">
-		<div class="action">
-			<button class="btn btn-primary" id="connect">Connect</button> <span id="status"></span>
+<body class="control">
+	<section class="social">
+		<a class="applink" href="https://xmas.mostlypainless.com">xmas.mostlypainless.com</a>
+		<div class="scan-it">
+			<p>QR Scanner Enabled</p>
+			<img class="qr-code" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK8AAACvAQMAAACxXBw2AAAABlBMVEX///8uLi6wwLx3AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABGklEQVRIx+2WQa7DIAxEzYolN4KbNcnN4EYss8LfY9Kmzd6O1F9HVqK3Qp4ZB6JffX9FlqqUKaeR8L3a4yrdeBAJFpQcsKDYOlHolDYeN+Oa8AxPLC2wemGVoWfFV3V8MXwHjL5Y0whrhV566PkaNyMcRfc4KDDjJH3p9pgK81646QDOed+CdygfFG/ydsBBT8LHTE5l7LBKMKio1RDv9TY896tMRBf7+yqwwiJDloCr8WUuDwcc206EaBeuUP6ZBn9MAQeUrdZgCszHHs81kxP+3mL6tJrjY5ki3rDaxg64auv+RupuxPPPPeaOO2dijbFKkbblpbw5FrPhckbLW9L88XFZmBK8jGmKpwcJlzN6UPi0pgn+1b+sP9UEcOx6Wpr+AAAAAElFTkSuQmCC" />
 		</div>
+	</section>
 
+	<section class="admin-panel">
 		<div class="inputs">
+      <div class="action">
+        <button class="btn btn-primary" id="connect">Connect</button> <span id="status"></span>
+      </div>
 			<h2>Manual Input ranges</h2>
 			<div class="form-item">
 				<label for="red">Arm Angle</label>
@@ -42,32 +45,20 @@
 
 				<input type="range" min="0" max="255" value="0" id="blue"/>
 			</div>
-
-
-	</section>
-	<section class="social">
-		<h2>Download the app now!</h2>
-		<a href="https://xmas.mostlypainless.com">xmas.mostlypainless.com</a>
-		<div class="scan-it">
-			<p>Qr Scanner Enabled</p>
-			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK8AAACvAQMAAACxXBw2AAAABlBMVEX///8uLi6wwLx3AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABGklEQVRIx+2WQa7DIAxEzYolN4KbNcnN4EYss8LfY9Kmzd6O1F9HVqK3Qp4ZB6JffX9FlqqUKaeR8L3a4yrdeBAJFpQcsKDYOlHolDYeN+Oa8AxPLC2wemGVoWfFV3V8MXwHjL5Y0whrhV566PkaNyMcRfc4KDDjJH3p9pgK81646QDOed+CdygfFG/ydsBBT8LHTE5l7LBKMKio1RDv9TY896tMRBf7+yqwwiJDloCr8WUuDwcc206EaBeuUP6ZBn9MAQeUrdZgCszHHs81kxP+3mL6tJrjY5ki3rDaxg64auv+RupuxPPPPeaOO2dijbFKkbblpbw5FrPhckbLW9L88XFZmBK8jGmKpwcJlzN6UPi0pgn+1b+sP9UEcOx6Wpr+AAAAAElFTkSuQmCC" />
-		</div>
 	</section>
 	<section class="totals">
 		<div class="total votes">Total Votes: <i>0</i></div>
 		<div class="total fireballs">Fireballs: <i>0</i></div>
-	</section>
-	<section class="fireballs panel">
 		<h3>The last 6 fireballs</h2>
 
-		<div class="fireball-table">
-			<ul class="fireballers">
+      <div class="fireball-table">
+        <ul class="fireballers">
 
-			</ul>
-		</div>
-	</section>
+        </ul>
+      </div>
+    </section>
 
-	<section class="votes panel">
+    <section class="votes panel">
 		<h2>Current Voting Pool</h2>
 		<p>Please cast your vote! You will see your name on your application. The winner will cause a <span class="fireball">Fireball</span>!</p>
 
