@@ -88,7 +88,7 @@ heatr.template = {
 		user = heatr.instance.user;
 
 		target.html(
-			'<span class="greeting">Hello</span><span class="info">' + user.name + '#' + user.id + '</span>'
+			'<span class="greeting">Hello</span><span class="info">' + user.name + '</span>'
 		);
 	}
 }

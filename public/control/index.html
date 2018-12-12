@@ -40,10 +40,13 @@
 
 				<input type="range" min="0" max="255" value="0" id="green"/>
 			</div>
-			<div class="form-item">
+			<div class="form-item hidden">
 				<label for="blue">Nothing</label>
 
 				<input type="range" min="0" max="255" value="0" id="blue"/>
+			</div>
+			<div class="form-item">
+				<a href="#" class="btn btn-primary" id="force_vote">Force Voting</a>
 			</div>
 	</section>
 	<section class="totals">
@@ -90,7 +93,11 @@
 	heatr.instance.config = {
 		timeout : 3000
 	};
-	heatr.instance.voters = {};
+
+	heatr.instance.totals = {};
+	heatr.instance.voters = {
+		voters : 0
+	};
 	heatr.instance.fireballs = {};
 	heatr.snapshots = {};
 	heatr.instance.pull_vote = true;
@@ -99,11 +106,25 @@
 		votes : function(queue) {
 			console.log('Found Votes', queue);
 			$('.total.votes i').html(queue.size);
+
+			heatr.instance.totals.voters = queue.size;
+
 			$('.votes').find('.voters').html('');
-			queue.forEach(function(doc) {
-				let data = doc.data();
-				heatr.template.rower(data);
-			});
+			
+			if(queue.size > 0){
+				queue.forEach(function(doc) {
+					let data = doc.data();
+					heatr.template.rower(data);
+				});
+
+				if(!heatr.flamethrower.running) {
+					heatr.flamethrower.running = true;
+					setTimeout(function() {
+						heatr.vote.go();
+					}, 250);
+				}
+
+			}
 		}
 		, fireballs : function(queue) {
 			console.log('Found Fireballs', queue);
@@ -145,7 +166,7 @@
 				return false;
 			}
 
-			if(heatr.vote.votes.length === 0) {
+			if(heatr.instance.totals.voters === 0) {
 				return false;
 			}
 
@@ -155,7 +176,7 @@
 			// lets run the whole check and vote process together //
 			let check = heatr.vote.check()
 			voters = heatr.instance.voters;
-
+			console.log('running vote');
 			if(check) {
 				// we can run the vote! //
 				// get a random voter from our primary voters list and set them to fireball = true so they automagically move to the fireballs //
@@ -183,7 +204,7 @@
 		, running : false
 
 		, start : function() {
-			heatr.flamethrower.running = true;
+
 			$.each(heatr.flamethrower.targets, function(i, targ) {
 				$(targ).val(255);
 			});
@@ -196,7 +217,7 @@
 				$(targ).val(0);
 			});
 
-			heatr.timeouts.voter = setTimeout(heatr.timeouts.select, 4500);
+			// heatr.timeouts.voter = setTimeout(heatr.timeouts.select, 4500);
 		}
 	};
 
@@ -241,7 +262,7 @@
 	let vote_queue = {}
 	, fireballs = {};
 
-	heatr.timeouts.vote = setTimeout(heatr.timeouts.select, 3000);
+	// heatr.timeouts.vote = setTimeout(heatr.timeouts.select, 3000);
 	// lets create our base system configs //
 	// heatr.system.init();
 
@@ -256,6 +277,9 @@
 	// the below will control our voting standards //
 	heatr.snapshots.system = heatr.db.collection("system").onSnapshot(heatr.snapshots.system);
 
+	$('#force_vote').on('click', function(){
+		$(this)
+	});
 	</script>
 
 
