@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="46px" height="46px" viewBox="0 0 46 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="20" cy="20" r="20"></circle>
+        <filter x="-10.0%" y="-7.5%" width="120.0%" height="120.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="1" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.742329031 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <filter x="-10.0%" y="-7.5%" width="120.0%" height="120.0%" filterUnits="objectBoundingBox" id="filter-3">
+            <feGaussianBlur stdDeviation="1" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.176120924 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile" transform="translate(-17.000000, -574.000000)">
+            <g id="Group-3" transform="translate(20.000000, 576.000000)">
+                <g id="Oval-3">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#E2E2E2" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
+                    <use stroke="#979797" stroke-width="1" xlink:href="#path-1"></use>
+                </g>
+                <path d="M19.8876076,7.75481274 C12.7087875,7.75481274 6.8875,13.5750239 6.8875,20.7549204 C6.8875,26.4987084 10.6124265,31.3717037 15.777767,33.0906852 C16.427471,33.2110247 16.6659972,32.8086732 16.6659972,32.4653075 C16.6659972,32.1553095 16.6539417,31.13124 16.6483445,30.0449556 C13.031702,30.83136 12.2685474,28.5111116 12.2685474,28.5111116 C11.6771833,27.0084828 10.8251195,26.6089299 10.8251195,26.6089299 C9.64562047,25.8020742 10.9140287,25.8186505 10.9140287,25.8186505 C12.2194644,25.9103582 12.9068418,27.1583151 12.9068418,27.1583151 C14.0663201,29.1457463 15.9480506,28.5711737 16.6898929,28.2390023 C16.8065727,27.3987788 17.1434801,26.8252826 17.5152624,26.5006459 C14.6277608,26.1719189 11.5923644,25.057218 11.5923644,20.0759388 C11.5923644,18.6566219 12.1002013,17.4969282 12.9318138,16.5865246 C12.7968355,16.2590893 12.3518593,14.936862 13.0577505,13.1461934 C13.0577505,13.1461934 14.1494168,12.7967999 16.6337058,14.478754 C17.6706919,14.1907142 18.7828095,14.0462638 19.8876076,14.0413124 C20.9924058,14.0462638 22.1053845,14.1907142 23.1443081,14.478754 C25.6255832,12.7967999 26.7157426,13.1461934 26.7157426,13.1461934 C27.4233559,14.936862 26.9781645,16.2590893 26.8431862,16.5865246 C27.6767362,17.4969282 28.1811286,18.6566219 28.1811286,20.0759388 C28.1811286,25.0690582 25.1399198,26.1684745 22.2450988,26.4903126 C22.7113874,26.8937405 23.1268707,27.684881 23.1268707,28.8977479 C23.1268707,30.6371808 23.1118014,32.0371228 23.1118014,32.4653075 C23.1118014,32.8112565 23.3458068,33.2166219 24.0047676,33.088963 C29.1673096,31.368044 32.8875,26.4967709 32.8875,20.7549204 C32.8875,13.5750239 27.0670736,7.75481274 19.8876076,7.75481274" id="Fill-5" fill="#161514"></path>
+            </g>
+        </g>
+    </g>
+</svg>

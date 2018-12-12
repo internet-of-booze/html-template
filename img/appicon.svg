@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512px" height="512px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="50%" cy="0%" fx="50%" fy="0%" r="119.500156%" id="radialGradient-1">
+            <stop stop-color="#FFF265" offset="0%"></stop>
+            <stop stop-color="#FFA500" offset="48.6532933%"></stop>
+            <stop stop-color="#CB0000" offset="100%"></stop>
+        </radialGradient>
+        <path d="M214.399816,447.173391 C108.007157,395.89982 91.3432463,304.889232 181.071995,189.523697 C182.353835,220.28784 184.917513,249.770143 202.863263,266.434053 C197.735906,239.515429 175.944638,144.659323 293.873851,63.9034487 C257.982351,231.824393 513.068366,279.252446 311.819601,444.609712 C365.65685,335.653374 274.646262,339.498892 272.082583,238.233589 C231.063727,277.970607 227.218209,318.989464 242.60028,366.417517 C225.93637,360.00832 209.272459,343.34441 199.017745,321.553142 C181.071995,367.699356 197.735906,415.127409 214.399816,447.173391 Z" id="path-2"></path>
+        <filter x="-28.1%" y="-19.6%" width="156.2%" height="139.1%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="25" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 0.508661685   0 0 0 0 0  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="PWA-Icon">
+            <g id="Group">
+                <rect id="Rectangle" fill="url(#radialGradient-1)" x="0" y="0" width="512" height="512" rx="150"></rect>
+                <g id="Shape">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-2"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

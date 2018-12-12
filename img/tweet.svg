@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="46px" height="46px" viewBox="0 0 46 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="20" cy="20" r="20"></circle>
+        <filter x="-10.0%" y="-7.5%" width="120.0%" height="120.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="1" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.742329031 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <filter x="-10.0%" y="-7.5%" width="120.0%" height="120.0%" filterUnits="objectBoundingBox" id="filter-3">
+            <feGaussianBlur stdDeviation="1" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.176120924 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile" transform="translate(-257.000000, -574.000000)">
+            <g id="Group-3" transform="translate(260.000000, 576.000000)">
+                <g id="Oval-3">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#E2E2E2" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
+                    <use stroke="#979797" stroke-width="1" xlink:href="#path-1"></use>
+                </g>
+                <path d="M17.371387,30.3142356 C25.6738295,30.3142356 30.2137936,23.4360883 30.2137936,17.4718305 C30.2137936,17.2764675 30.2098144,17.0819861 30.2010513,16.8883839 C31.0823793,16.2512582 31.8484272,15.4561702 32.452553,14.5510808 C31.6438251,14.9105644 30.7734971,15.1525673 29.8604877,15.2616888 C30.7924171,14.7028822 31.5078636,13.8189143 31.8453472,12.7651034 C30.9732585,13.2821085 30.0074491,13.6578728 28.979159,13.8607143 C28.1554711,12.9833456 26.9828595,12.4346605 25.6844072,12.4346605 C23.1917826,12.4346605 21.1704023,14.4560408 21.1704023,16.9477847 C21.1704023,17.3019875 21.2100023,17.6465119 21.2874438,17.9769541 C17.5359676,17.7881926 14.2095336,15.9920953 11.9835526,13.2609885 C11.5959083,13.928035 11.3723869,14.7028822 11.3723869,15.5296502 C11.3723869,17.0956261 12.1692341,18.4781199 13.3810056,19.2868478 C12.6404791,19.2639678 11.9448319,19.0606849 11.3367454,18.722322 C11.336081,18.7412597 11.336081,18.7597228 11.336081,18.7799627 C11.336081,20.9659037 12.8919369,22.7910418 14.9573171,23.2046454 C14.5780335,23.3080469 14.1789492,23.3634869 13.7671056,23.3634869 C13.4767027,23.3634869 13.1937798,23.3349046 12.9187776,23.2820869 C13.4934227,25.0755442 15.1597186,26.3805965 17.1353388,26.417118 C15.5904829,27.6280088 13.6443441,28.3491768 11.5292439,28.3491768 C11.1653595,28.3491768 10.8058766,28.3284791 10.452553,28.2866953 C12.4501733,29.5671091 14.8222364,30.3142356 17.3716203,30.3142356" id="twitter" fill="#333333" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>
