@@ -131,6 +131,9 @@ heatr.g = {
 	id : function() {
 		return '_' + Math.random().toString(36).substr(2, 9);
 	}
+	, rand : function(length) {
+		return Math.floor(Math.random() * length)
+	}
 };
 
 heatr.unique_name = function() {
@@ -139,7 +142,7 @@ heatr.unique_name = function() {
 		heatr.db.collection("users").get()
 		.then(function(users) {
 			console.log('Users', users);
-			var id = Math.floor(Math.random() * usernames.length)
+			var id = heatr.g.rand(length)
 			, username = usernames[id];
 
 			// no user so lets create our first one //
