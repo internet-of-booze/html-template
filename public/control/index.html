@@ -46,7 +46,7 @@
 				<input type="range" min="0" max="255" value="0" id="blue"/>
 			</div>
 			<div class="form-item">
-				<a href="#" class="btn btn-primary" id="force_vote">Force Voting</a>
+				<!-- <a href="#" class="btn btn-primary" id="force_vote">Force Voting</a> -->
 			</div>
 	</section>
 	<section class="totals">
@@ -55,7 +55,7 @@
 		<div class="total overall">Aboslute: <i>0</i></div>
 	</section>
 	<section class="fireballs panel">
-		<h3>The last 6 fireballs</h2>
+		<h3>The most recent fireballs</h2>
 
       <div class="fireball-table">
         <ul class="fireballers">
@@ -110,7 +110,7 @@
 			heatr.instance.totals.voters = queue.size;
 
 			$('.votes').find('.voters').html('');
-			
+
 			if(queue.size > 0){
 				queue.forEach(function(doc) {
 					let data = doc.data();
@@ -185,7 +185,7 @@
 				, date = new Date()
 				, timestamp = date.getTime()
 				, votingRef = heatr.db.collection('queue').doc(key);
-
+				console.log('ref',votingRef, key, i, voters);
 				votingRef.update({
 					fireball : true
 				});
@@ -207,14 +207,16 @@
 
 			$.each(heatr.flamethrower.targets, function(i, targ) {
 				$(targ).val(255);
+				setTimeout(function(){ $(targ)[0].dispatchEvent(new Event("input"));}, 150);
 			});
 
-			setTimeout(heatr.flamethrower.stop, 2500);
+			setTimeout(heatr.flamethrower.stop, 1000);
 		}
 		, stop : function() {
 			heatr.flamethrower.running = false;
 			$.each(heatr.flamethrower.targets, function(i, targ) {
 				$(targ).val(0);
+				setTimeout(function(){ $(targ)[0].dispatchEvent(new Event("input"));}, 150);
 			});
 
 			// heatr.timeouts.voter = setTimeout(heatr.timeouts.select, 4500);

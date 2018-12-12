@@ -40,6 +40,7 @@ heatr.init = function() {
 
 	this.register.on();
 	this.register.listeners();
+	this.register.snapshots();
 
 	// Lets configure the unique names and make sure we register them into our system //
 	this.unique_name();
@@ -71,7 +72,20 @@ heatr.register = {
 		});
 
 	}
+	, snapshots : function() {
+		heatr.db.collection('queue').doc().where('user_uid', '==', user.name).where('fireball', '==', true).orderBy("timestamp", 'asc')
+			.onSnapshot(function(winners) {
+				current = localStorage.getItem('winner_count');
+				if(current < winners.size) {
+					console.log('winner', winners, winners.size);
+					$('.user').addClass('winner');
+				     $("#yeah-audio")[0].play(); // winner sound
+				}
+				localStorage.setItem('winner_count', winners.size);
+			});
+	}
 }
+
 
 heatr.template = {
 	init : function() {
@@ -106,15 +120,14 @@ heatr.handle = {
     $('.user').removeClass('winner');
 
     // testing visual with click event. this is to be tied into the winner logic
-    //$('.user').addClass('winner');
-    //$("#yeah-audio")[0].play(); // winner sound
 
 		db.collection("queue").doc(user.uid + '__' + now).set({
 			connect_id: 1,
 		     timestamp: now,
 			username: user.name,
 			user_uid: user.uid,
-         fireball: false
+         		fireball: false,
+			ping: false
 		})
 		.then(function(docRef) {
 		    console.log("Document written with ID: ", docRef);
@@ -158,7 +171,7 @@ heatr.unique_name = function() {
 				, 'id' : id
 				, 'uid' : heatr.g.id()
 			};
-
+			heatr.userdata = user;
 			heatr.db.collection("users").add(user)
 			.then(heatr.handle.added.user)
 			.then(heatr.template.userbanner);

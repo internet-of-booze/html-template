@@ -30,6 +30,14 @@ html {
     background: #b3d4fc;
     text-shadow: none;
 }
+
+a {
+	color: #222;
+	text-decoration: none;
+}
+a:hover {
+	color: #222;
+}
 /*
  * A better looking default horizontal rule
  */
@@ -467,4 +475,22 @@ section {
 .control label {
   width: 7em;
   display: inline-block;
+}
+
+ul {
+	list-style: none;
+	font-size: 18px;
+	padding: 0px;
+	margin: 0px;
+
+}
+li {
+	background: #222;
+	color: #fff;
+	padding: 5px;
+	margin: 5px;
+}
+.fireballs {
+	overflow: hidden;
+	height: 430px !important;
 }
