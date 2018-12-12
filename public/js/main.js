@@ -61,13 +61,13 @@ heatr.register = {
 	}
 	, listeners : function() {
 		document.getElementById('about').addEventListener('click', function () {
-		  document.getElementById('front').classList.add('hide');
-		  document.getElementById('back').classList.remove('hide');
+      document.getElementById('interface').classList.add('about');
+      console.log('?');
 		});
 
 		document.getElementById('x').addEventListener('click', function () {
-		  document.getElementById('back').classList.add('hide');
-		  document.getElementById('front').classList.remove('hide');
+		  document.getElementById('interface').classList.remove('about');
+      console.log('x');
 		});
 
 	}
@@ -102,12 +102,18 @@ heatr.handle = {
 		, now = date.getTime()
 		, user = heatr.instance.user;
 
+    $("#fireball-audio")[0].play(); // fireball sound
+
+    // testing visual with click event. this is to be tied into the winner logic
+    $('.user').toggleClass('winner');
+    //$("#yeah-audio")[0].play(); // winner sound
+
 		db.collection("queue").add({
 			connect_id: 1,
 		     timestamp: now,
 			username: user.name,
 			user_uid: user.uid,
-		     fireball: false
+         fireball: false
 		})
 		.then(function(docRef) {
 		    console.log("Document written with ID: ", docRef.id);
