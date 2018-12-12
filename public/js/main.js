@@ -103,9 +103,10 @@ heatr.handle = {
 		, user = heatr.instance.user;
 
     $("#fireball-audio")[0].play(); // fireball sound
+    $('.user').removeClass('winner');
 
     // testing visual with click event. this is to be tied into the winner logic
-    $('.user').toggleClass('winner');
+    //$('.user').addClass('winner');
     //$("#yeah-audio")[0].play(); // winner sound
 
 		db.collection("queue").doc(user.uid + '__' + now).set({
@@ -169,3 +170,26 @@ heatr.unique_name = function() {
 
 	}
 }
+
+
+// Listen for any clicks
+$('#instagram').on('click', function (ev) {
+  console.log('IG');
+  // Check if the current browser supports the Web Share API
+  if (navigator.share !== undefined) {
+
+    // Get the canonical URL from the link tag
+    var shareUrl = document.querySelector('link[rel=canonical]') ? document.querySelector('link[rel=canonical]').href : window.location.href;
+
+    // Share it!
+    navigator.share({
+      title: document.title,
+      url: shareUrl
+    }).then(() => console.log('Successful share'))
+      .catch((error) => console.log('Error sharing:', error));
+
+    ev.preventDefault();
+  } else {
+    $('#error').innerHTML = "Unfortunately, sharing is not supported on your browser.";
+  }
+});

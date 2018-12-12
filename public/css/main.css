@@ -233,7 +233,7 @@ html, body {
   width: 100%;
   overflow: hidden;
   position: relative;
-  background: #dedede url('../img/background.svg') center top;
+  background: #dedede url('../img/background.png') center top;
   background-size: auto;
 }
 
