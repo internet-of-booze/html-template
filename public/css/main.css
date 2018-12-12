@@ -1,24 +1,18 @@
-/*! HTML5 Boilerplate v6.1.0 | MIT License | https://html5boilerplate.com/ */
 
+/*! HTML5 Boilerplate v6.1.0 | MIT License | https://html5boilerplate.com/ */
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
  * Kroc Camen, and the H5BP dev community and team.
  */
-
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
-
 html {
     color: #222;
     font-size: 1em;
     line-height: 1.4;
 }
-
-
-
-
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -28,21 +22,17 @@ html {
  *
  * Customize the background color to match your design.
  */
-
 ::-moz-selection {
     background: #b3d4fc;
     text-shadow: none;
 }
-
 ::selection {
     background: #b3d4fc;
     text-shadow: none;
 }
-
 /*
  * A better looking default horizontal rule
  */
-
 hr {
     display: block;
     height: 1px;
@@ -51,13 +41,11 @@ hr {
     margin: 1em 0;
     padding: 0;
 }
-
 /*
  * Remove the gap between audio, canvas, iframes,
  * images, videos and the bottom of their containers:
  * https://github.com/h5bp/html5-boilerplate/issues/440
  */
-
 audio,
 canvas,
 iframe,
@@ -66,68 +54,41 @@ svg,
 video {
     vertical-align: middle;
 }
-
 /*
  * Remove default fieldset styles.
  */
-
 fieldset {
     border: 0;
     margin: 0;
     padding: 0;
 }
-
 /*
  * Allow only vertical resizing of textareas.
  */
-
 textarea {
     resize: vertical;
 }
-
 /* ==========================================================================
    Browser Upgrade Prompt
    ========================================================================== */
-
 .browserupgrade {
     margin: 0.2em 0;
     background: #ccc;
     color: #000;
     padding: 0.2em 0;
 }
-
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ==========================================================================
    Helper classes
    ========================================================================== */
-
 /*
  * Hide visually and from screen readers
  */
-
 .hidden {
     display: none !important;
 }
-
 /*
  * Hide only visually, but have it available for screen readers:
  * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
@@ -136,7 +97,6 @@ textarea {
  *    causes content to wrap 1 word per line:
  *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
  */
-
 .visuallyhidden {
     border: 0;
     clip: rect(0 0 0 0);
@@ -148,13 +108,11 @@ textarea {
     width: 1px;
     white-space: nowrap; /* 1 */
 }
-
 /*
  * Extends the .visuallyhidden class to allow the element
  * to be focusable when navigated to via the keyboard:
  * https://www.drupal.org/node/897638
  */
-
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
     clip: auto;
@@ -165,15 +123,12 @@ textarea {
     width: auto;
     white-space: inherit;
 }
-
 /*
  * Hide visually and from screen readers, but maintain layout
  */
-
 .invisible {
     visibility: hidden;
 }
-
 /*
  * Clearfix: contain floats
  *
@@ -185,40 +140,33 @@ textarea {
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-
 .clearfix:before,
 .clearfix:after {
     content: " "; /* 1 */
     display: table; /* 2 */
 }
-
 .clearfix:after {
     clear: both;
 }
-
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
    These examples override the primary ('mobile first') styles.
    Modify as content requires.
    ========================================================================== */
-
 @media only screen and (min-width: 35em) {
     /* Style adjustments for viewports that meet the condition */
 }
-
 @media print,
        (-webkit-min-device-pixel-ratio: 1.25),
        (min-resolution: 1.25dppx),
        (min-resolution: 120dpi) {
     /* Style adjustments for high resolution devices */
 }
-
 /* ==========================================================================
    Print styles.
    Inlined to avoid the additional HTTP request:
    https://www.phpied.com/delay-loading-your-print-css/
    ========================================================================== */
-
 @media print {
     *,
     *:before,
@@ -229,30 +177,24 @@ textarea {
         box-shadow: none !important;
         text-shadow: none !important;
     }
-
     a,
     a:visited {
         text-decoration: underline;
     }
-
     a[href]:after {
         content: " (" attr(href) ")";
     }
-
     abbr[title]:after {
         content: " (" attr(title) ")";
     }
-
     /*
      * Don't show links that are fragment identifiers,
      * or use the `javascript:` pseudo protocol
      */
-
     a[href^="#"]:after,
     a[href^="javascript:"]:after {
         content: "";
     }
-
     pre {
         white-space: pre-wrap !important;
     }
@@ -261,38 +203,31 @@ textarea {
         border: 1px solid #999;
         page-break-inside: avoid;
     }
-
     /*
      * Printing Tables:
      * http://css-discuss.incutio.com/wiki/Printing_Tables
      */
-
     thead {
         display: table-header-group;
     }
-
     tr,
     img {
         page-break-inside: avoid;
     }
-
     p,
     h2,
     h3 {
         orphans: 3;
         widows: 3;
     }
-
     h2,
     h3 {
         page-break-after: avoid;
     }
 }
-
 /*
  *  App Styling
  */
-
 html, body {
   height: 100%;
   width: 100%;
@@ -301,7 +236,6 @@ html, body {
   background: #dedede url('../img/background.png') center top;
   background-size: auto;
 }
-
 #interface {
   display: block;
   width: 100%;
@@ -310,14 +244,23 @@ html, body {
   position: relative;
   transform: perspective(400px) rotateY(0);
   transition: transform .5s;
-
 }
-
 #interface.about {
   transform: perspective(400px) rotateY(180deg);
   transition: transform .5s;
 }
-
+header {
+	display: flex;
+	background: #222;
+}
+header span {
+	display: block;
+	padding: 5px;
+	color: #dedede;
+}
+header span:first-child {
+	flex-grow:4;
+}
 section {
   background: #dedede url('../img/background.png') center top;
   background-size: auto;
@@ -327,24 +270,18 @@ section {
   overflow: hidden;
   position: relative;
 }
-
 #front {
   top: -100%;
 }
-
 #back {
   transform: perspective(400px) translateZ(-0px) rotateY(180deg);
 }
-
 #side {
   display: none;
-
 }
-
 #large {
   display: none;
 }
-
 .title {
   width: 178px;
   height: 85px;
@@ -355,7 +292,6 @@ section {
   background: url('../img/title.png') center center;
   background-size: auto;
 }
-
 .disclaimer {
   display: block;
   content: '';
@@ -372,7 +308,6 @@ section {
   outline: 0;
   transition: all 5s;
 }
-
 .are-you-drunk-yet {
   display: block;
   content: '';
@@ -389,7 +324,6 @@ section {
   outline: 0;
   transition: all 5s;
 }
-
 .info-large {
   display: block;
   width: 674px;
@@ -400,7 +334,6 @@ section {
   left: 50%;
   background: url('../img/large.png') center center;
 }
-
 #heatr {
   display: block;
   content: '';
@@ -417,7 +350,6 @@ section {
   outline: 0;
   transition: all 5s;
 }
-
 #heatr.active,
 #heatr.on,
 #heatr:active,
@@ -426,25 +358,23 @@ section {
   background: url('../img/button-fire-on.png') center center;
   transition: all .1s;
 }
-
 #about {
   display: block;
   width: 46px;
   height: 46px;
   margin: 0 -23px;
   position: absolute;
-  bottom: 30px;
+  bottom: 45px;
   left: 50%;
   background: url('../img/about.png') center center;
 }
-
 #x {
   display: block;
   width: 46px;
   height: 46px;
   margin: 0 -23px;
   position: absolute;
-  bottom: 30px;
+  bottom: 45px;
   left: 50%;
   background: url('../img/x.png') center center;
 }
@@ -454,28 +384,24 @@ section {
   height: 46px;
   margin: 0;
   position: absolute;
-  bottom: 30px;
+  bottom: 45px;
   right: 30px;
   background: url('../img/tweet.png') center center;
 }
-
 #github {
   display: block;
   width: 46px;
   height: 46px;
   margin: 0;
   position: absolute;
-  bottom: 30px;
+  bottom: 45px;
   right: 30px;
   background: url('../img/github.png') center center;
 }
-
 @media only screen and (min-width: 460px) {
   #front, #back, #large { display: none; }
   #side { display: block; }
-
 }
-
 @media only screen and (min-width: 824px) {
   #front, #back, #side { display: none; }
   #large { display: block; }

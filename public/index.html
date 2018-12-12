@@ -8,9 +8,11 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link rel="manifest" href="site.webmanifest">
+  <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
+  <!-- <script src="/workers/master.js"></script> -->
+  <script src="register.js"></script>
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
@@ -31,10 +33,11 @@
   -->
 
   <main id="interface">
+	  <header class="user"></header>
 
-    <section id="back">
-      <div class="title"></div>
-
+	<section id="back">
+      <div class="title">
+	 </div>
       <div class="disclaimer"></div>
 
       <a href="#" id="x"></a>
@@ -42,6 +45,7 @@
     </section>
 
     <section id="front">
+
       <div class="title"></div>
 
       <button id="heatr"></button>
@@ -65,15 +69,17 @@
   <script src="js/vendor/modernizr-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+  <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
   <script src="js/plugins.js"></script>
+  <script src="js/usernames.js"></script>
+
   <script src="js/main.js"></script>
 
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+<script>
+  heatr.init();
+</script>
+
+
 </body>
 
 </html>
