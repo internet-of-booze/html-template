@@ -54,8 +54,9 @@
 		</div>
 	</section>
 	<section class="totals">
-		<div class="total votes">Total Votes: <i>0</i></div>
+		<div class="total votes">Current Votes: <i>0</i></div>
 		<div class="total fireballs">Fireballs: <i>0</i></div>
+		<div class="total overall">Aboslute: <i>0</i></div>
 	</section>
 	<section class="fireballs panel">
 		<h3>The last 6 fireballs</h2>
@@ -98,28 +99,41 @@
 	};
 	heatr.instance.voters = {};
 	heatr.instance.fireballs = {};
+	heatr.snapshots = {};
 	heatr.instance.pull_vote = true;
 
 	heatr.snapshots = {
-		queuer : function(queue) {
-
+		votes : function(queue) {
+			console.log('Found Votes', queue);
 			$('.total.votes i').html(queue.size);
-			let rows = queue;
-
-			rows.forEach(function(doc) {
+			$('.votes').find('.voters').html('');
+			queue.forEach(function(doc) {
 				let data = doc.data();
-
-				// split up the results //
-				(data.fireball ? heatr.template.rower(data, 'fireballs') : heatr.template.rower(data));
+				heatr.template.rower(data);
 			});
+		}
+		, fireballs : function(queue) {
+			console.log('Found Fireballs', queue);
+			$('.total.fireballs i').html(queue.size);
+			$('.fireballs').find('.fireballers').html('');
 
-			heatr.vote.go();
+			queue.forEach(function(doc) {
+				let data = doc.data();
+				heatr.template.rower(data, 'fireballs');
+			});
+		}
+		, count : function(rows) {
+
+			$('.total.overall i').html(rows.size);
 		}
 		, system : function(config) {
 			// every time a system config is added we should scope it to our heatr class //
 			config.forEach(function(conf) {
 				let data = conf.data();
-				console.log(data);
+
+				$.each(data, function(index, value) {
+					heatr.instance.system[index] = value;
+				});
 				// heatr.instance.system
 			});
 		}
@@ -131,7 +145,6 @@
 		, check : function() {
 			let system = heatr.instance.system;
 			// check if we need to run the vote //
-			console.log('Checking votes...', heatr.vote.votes);
 			if(system.last_vote && system.last_vote > 0) {
 				// the system has already made a vote //
 				// check if the timeout is over //
@@ -139,10 +152,11 @@
 				return false;
 			}
 
-			return true;
-		}
-		, pull : function() {
+			if(heatr.vote.votes.length === 0) {
+				return false;
+			}
 
+			return true;
 		}
 		, go : function() {
 			// lets run the whole check and vote process together //
@@ -152,11 +166,44 @@
 			if(check) {
 				// we can run the vote! //
 				// get a random voter from our primary voters list and set them to fireball = true so they automagically move to the fireballs //
-				let i = heatr.g.rand(Object.keys(voters).length);
-				console.log('Voters', heatr.instance.voters, i);
-				// heatr.db.collection('voters').where('uid', '==', vote.uid);
+				let i = heatr.g.rand(Object.keys(voters).length)
+				, key = Object.keys(voters)[i]
+				, date = new Date()
+				, timestamp = date.getTime()
+				, votingRef = heatr.db.collection('queue').doc(key);
 
+				votingRef.update({
+					fireball : true
+				});
+
+				heatr.flamethrower.start();
 			}
+		}
+	};
+
+	heatr.flamethrower = {
+		targets : [
+			'#green'
+			, '#red'
+		]
+
+		, running : false
+
+		, start : function() {
+			heatr.flamethrower.running = true;
+			$.each(heatr.flamethrower.targets, function(i, targ) {
+				$(targ).val(255);
+			});
+
+			setTimeout(heatr.flamethrower.stop, 2500);
+		}
+		, stop : function() {
+			heatr.flamethrower.running = false;
+			$.each(heatr.flamethrower.targets, function(i, targ) {
+				$(targ).val(0);
+			});
+
+			heatr.timeouts.voter = setTimeout(heatr.timeouts.select, 4500);
 		}
 	};
 
@@ -167,19 +214,17 @@
 
 		let displayed = heatr.instance[type]
 		, uid = item.user_uid + '__' + item.timestamp
-		, target = $('.votes').find('.voters')
-		, output = '<li class="vote" id="' + item.user_uid + '__' + item.timestamp + '">';
-			if(type === 'fireball') {
-				target = $('.fireballs').find('.fireballers');
-			}
+		, output = '<li class="vote" id="' + uid + '">';
+
 			output+= '<div class="cell username">' + item.username + '</div>';
 			output+= '<div class="cell time">' + item.timestamp + '</div>'
 		output+= '</li>';
 
-		if(typeof displayed[uid] === 'undefined') {
+		target = (type === 'fireballs') ? $('.fireballs').find('.fireballers') : $('.votes').find('.voters');
+
+
 			$(target).prepend(output);
 			heatr.instance[type][uid] = true;
-		}
 
 		// lets do some hooking for each type //
 		switch(type){
@@ -193,40 +238,31 @@
 
 	};
 
-	heatr.system = {
-		init : function() {
-			// we need to add in our system settings if they are not there //
-			console.log('heater db', heatr.db);
-
-		}
-		, install : function() {
-
-			heatr.db.collection("system").add(system)
-			.then(function(docRef) {
-			    console.log("Document written with ID: ", docRef.id);
-			})
-			.catch(function(error) {
-			    console.error("Error adding document: ", error);
-			});
-		}
-	}
-
-	heatr.intervals = {
+	heatr.timeouts = {
 		select : function() {
 			// select a vote to be our fireball //
-
+			heatr.vote.go();
 		}
 	};
 
 	let vote_queue = {}
 	, fireballs = {};
 
+	heatr.timeouts.vote = setTimeout(heatr.timeouts.select, 3000);
 	// lets create our base system configs //
-	heatr.system.init();
+	// heatr.system.init();
 
-	heatr.db.collection("queue").orderBy("timestamp", 'asc').onSnapshot(heatr.snapshots.queuer);
+	heatr.db.collection("queue").where('fireball', '==', false).orderBy("timestamp", 'desc')
+		.onSnapshot(heatr.snapshots.votes);
+	//
+	heatr.db.collection("queue").where('fireball', '==', true).orderBy("timestamp", 'asc')
+		.onSnapshot(heatr.snapshots.fireballs);
 
-	heatr.db.collection("system").onSnapshot(heatr.snapshots.system);
+	heatr.snapshots.count = heatr.db.collection("queue").onSnapshot(heatr.snapshots.count);
+
+	// the below will control our voting standards //
+	heatr.snapshots.system = heatr.db.collection("system").onSnapshot(heatr.snapshots.system);
+
 	</script>
 
 

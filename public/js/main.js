@@ -108,7 +108,7 @@ heatr.handle = {
     $('.user').toggleClass('winner');
     //$("#yeah-audio")[0].play(); // winner sound
 
-		db.collection("queue").add({
+		db.collection("queue").doc(user.uid + '__' + now).set({
 			connect_id: 1,
 		     timestamp: now,
 			username: user.name,
@@ -116,7 +116,7 @@ heatr.handle = {
          fireball: false
 		})
 		.then(function(docRef) {
-		    console.log("Document written with ID: ", docRef.id);
+		    console.log("Document written with ID: ", docRef);
 		})
 		.catch(function(error) {
 		    console.error("Error adding document: ", error);
@@ -148,7 +148,7 @@ heatr.unique_name = function() {
 		heatr.db.collection("users").get()
 		.then(function(users) {
 			console.log('Users', users);
-			var id = heatr.g.rand(length)
+			var id = heatr.g.rand(usernames.length)
 			, username = usernames[id];
 
 			// no user so lets create our first one //
