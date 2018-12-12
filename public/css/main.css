@@ -436,3 +436,35 @@ section {
   #front, #back, #side { display: none; }
   #large { display: block; }
 }
+
+.control {
+  font-family: 'Lato', sans-serif;
+  font-size: 30px;
+  background: #fff;
+
+}
+
+.control section {
+  background: #fff;
+  width: auto;
+  height: auto;
+  padding: 2em;
+}
+
+.control .social,
+.control .admin-panel,
+.control .totals {
+  float: left;
+  width: 25%;
+}
+
+
+.control .social .qr-code {
+  width: 100%;
+  margin: -10%;
+}
+
+.control label {
+  width: 7em;
+  display: inline-block;
+}
