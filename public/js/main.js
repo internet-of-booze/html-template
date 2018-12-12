@@ -95,15 +95,19 @@ heatr.template = {
 
 heatr.handle = {
 	clicked : function() {
+		heatr.define();
 		console.log('clicked', heatr.db, $(this));
 		var db = heatr.db
 		, date = new Date()
-		, now = date.getTime();
+		, now = date.getTime()
+		, user = heatr.instance.user;
 
 		db.collection("queue").add({
 			connect_id: 1,
 		     timestamp: now,
-		     processed: false
+			username: user.name,
+			user_uid: user.uid,
+		     fireball: false
 		})
 		.then(function(docRef) {
 		    console.log("Document written with ID: ", docRef.id);
